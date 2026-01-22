@@ -1,11 +1,11 @@
 {
   "build": {
     "builder": "NIXPACKS",
-    "buildCommand": "composer install --no-dev --ignore-platform-reqs"
+    "buildCommand": "composer install --no-dev --ignore-platform-reqs && php artisan key:generate"
   },
   "deploy": {
-    "startCommand": "php artisan serve --host=0.0.0.0 --port=${PORT}",
-    "healthcheckPath": "/health"
+    "startCommand": "vendor/bin/heroku-php-apache2 public/",
+    "healthcheckPath": "/health",
+    "healthcheckTimeout": 120
   }
 }
-
