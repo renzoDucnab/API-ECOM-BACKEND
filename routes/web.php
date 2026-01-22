@@ -14,13 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return response()->json([
-        'status' => 'ok',
-        'service' => 'E-Commerce API',
-        'timestamp' => now()
-    ]);
-});
-
-Route::get('/health', function () {
-    return response()->json(['status' => 'ok']);
+    return view('welcome');
 });
